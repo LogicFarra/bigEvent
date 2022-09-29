@@ -106,7 +106,7 @@ export default {
   name: "myLayout",
   data() {
     return {
-      menu: [],
+      menu: []
     };
   },
   computed: {

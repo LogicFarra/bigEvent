@@ -8,8 +8,7 @@
             <el-input
               placeholder="请输入账号"
               type="text"
-              v-model="loginData.username"
-              @change="nextfocus('username')"
+              v-model="loginData.username" 
             ></el-input>
           </el-form-item>
           <el-form-item prop="password">
@@ -17,7 +16,6 @@
               placeholder="请输入密码"
               type="password"
               v-model="loginData.password"
-              @change="nextfocus('password')"
               ref="password"
             ></el-input>
           </el-form-item>
@@ -74,20 +72,11 @@ export default {
           this.$message.success(result.message)   //弹出登录成功提示框
           this.updateToken(result.token)          //更新token
           this.$router.push('/')                  //路由跳转到主页面
-          this.$store.dispatch('getMenuList')     //获取主页面的侧边栏数据
         }else{
           return false
         }
       })
     },
-    // 在账号框点击回车时焦点转移到密码框，在密码框点击回车时，触发登录函数
-    nextfocus(info){
-      if(info === 'username'){
-        this.$refs.password.focus()
-      }else{
-        this.loginFn()
-      }
-    }
   }
 };
 </script>
